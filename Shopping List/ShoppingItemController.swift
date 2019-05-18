@@ -28,8 +28,11 @@ class ShoppingItemController {
             shoppingItems.append(input)
         }
     }
-    //update object Bool when cell is clicked so add savePersistentStore so when it reloads it will have same record
-    //saveToPersistentStore()
+    func toggle(for shoppingItem: ShoppingItem) {
+        shoppingItem.isAdded = !shoppingItem.isAdded
+        saveToPersistentStore()
+    }
+    
 
 
     //create a file
@@ -60,6 +63,7 @@ class ShoppingItemController {
         do {
             let data = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
+    
             let decodeShoppingItem = try decoder.decode([ShoppingItem].self, from: data)
             self.shoppingItems = decodeShoppingItem
         } catch {
@@ -73,7 +77,4 @@ class ShoppingItemController {
         return isAddedOnes
     }
 
-    func toggle(for shoppingItem: ShoppingItem) {
-        shoppingItem.isAdded = !shoppingItem.isAdded
-    }
 }

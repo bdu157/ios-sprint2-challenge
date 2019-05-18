@@ -17,7 +17,6 @@ class ShoppingListCollectionViewCell: UICollectionViewCell {
     }
     
     
-    @IBOutlet weak var notLabel: UILabel!
     @IBOutlet weak var addedLabel: UILabel!
     
     @IBOutlet weak var shoppingItemImage: UIImageView!
@@ -29,6 +28,7 @@ class ShoppingListCollectionViewCell: UICollectionViewCell {
         guard let input = shoppingItem else {return}
             shoppingItemImage.image = UIImage(data: input.imageData)
             itemName.text = input.name
+            addedLabel.text = "Not Added"
             setStatusOfItem()
     }
     
@@ -36,9 +36,7 @@ class ShoppingListCollectionViewCell: UICollectionViewCell {
     func setStatusOfItem() {
         let isAdded = UserDefaults.standard.bool(forKey: .isAddedKey)
         if isAdded {
-            notLabel.text = ""
-        } else {
-            notLabel.text = "Not"
+           addedLabel.text = "Added"
         }
     }
 }

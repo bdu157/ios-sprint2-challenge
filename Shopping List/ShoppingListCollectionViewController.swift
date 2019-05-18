@@ -34,7 +34,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ShoppingListCollectionViewCell
-        let shoppingItem = self.shoppingItemController.shoppingItems[indexPath.row]
+        let shoppingItem = self.shoppingItemController.shoppingItems[indexPath.item]
         cell.shoppingItem = shoppingItem
         return cell
     }
@@ -57,13 +57,13 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     @IBAction func nexButton(_ sender: Any) {
     }
     
-   /*
-    func setIsAdded() {
-
+   
+    private func setIsAdded(for bool: Bool) {
+        
         let userDefaults = UserDefaults.standard
-        UserDefaults.set(, forKey: .isAddedKey)
+        userDefaults.set(bool, forKey: .isAddedKey)
     }
-    */
+    
 }
 
 extension String {

@@ -29,10 +29,6 @@ class DetailShoppingListViewController: UIViewController {
 
     }
 
-    
-    
-    
-    
     @IBAction func sendOrderButtonTapped(_ sender: Any) {
         presentAlert()
     }
@@ -44,21 +40,20 @@ class DetailShoppingListViewController: UIViewController {
         guard let inputName = nameTextField.text,
             let inputAddress = addressTextField.text else {return}
         
-        let alert = UIAlertController(title: inputName, message: "\(inputName)'s order will be delivered in 15 minutes to your \(inputAddress)", preferredStyle: .actionSheet)
-        let message = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let alert = UIAlertController(title: inputName, message: "\(inputName)'s order will be delivered in 15 minutes to your address :  \(inputAddress)", preferredStyle: .actionSheet)
+        let message = UIAlertAction(title: "Proceed to Checkout", style: .default, handler: nil)
         
         alert.addAction(message)
         
         present(alert, animated: true, completion: nil)
     }
     
-    
 
     func updateView() {
         if let input = shoppingItemController {
             let arrayOfTures = input.isAddedTrues
             let numberOfTrues = arrayOfTures.count
-            listCountTextView.text = "You currently have \(numberOfTrues)(s) in your shopping list"
+            listCountTextView.text = "You currently have \(numberOfTrues) items(s) in your shopping list"
     } else {
             listCountTextView.text = "You currently have 0 in your shopping list"
     }
