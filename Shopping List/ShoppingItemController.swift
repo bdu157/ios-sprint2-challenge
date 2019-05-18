@@ -68,9 +68,12 @@ class ShoppingItemController {
     }
 
 
-    var isAddedTures : [ShoppingItem] {
+    var isAddedTrues : [ShoppingItem] {
         let isAddedOnes = shoppingItems.filter{$0.isAdded == true}
         return isAddedOnes
     }
 
+    func toggle(for shoppingItem: ShoppingItem) {
+        shoppingItem.isAdded = !shoppingItem.isAdded
+    }
 }

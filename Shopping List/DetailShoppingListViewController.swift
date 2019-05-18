@@ -56,11 +56,12 @@ class DetailShoppingListViewController: UIViewController {
 
     func updateView() {
         if let input = shoppingItemController {
-            let arrayOfTures = input.isAddedTures
+            let arrayOfTures = input.isAddedTrues
             let numberOfTrues = arrayOfTures.count
             listCountTextView.text = "You currently have \(numberOfTrues)(s) in your shopping list"
     } else {
             listCountTextView.text = "You currently have 0 in your shopping list"
     }
     }
+    
 }

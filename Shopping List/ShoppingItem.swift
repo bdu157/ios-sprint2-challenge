@@ -19,8 +19,4 @@ class ShoppingItem: Codable {
         self.isAdded = isAdded
         self.imageData = imageData
     }
-    
-    func toggle(for shoppingItem: ShoppingItem, updateIsAddedTo isAdded: Bool) {
-        shoppingItem.isAdded = !shoppingItem.isAdded
-    }
 }
