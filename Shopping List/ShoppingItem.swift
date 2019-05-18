@@ -9,14 +9,18 @@
 import Foundation
 import UIKit
 
-struct ShoppingItem: Codable, Equatable {
+class ShoppingItem: Codable {
     var name: String
-    var image: UIImage
+    var imageData: Data
     var isAdded : Bool
     
-    init(name: String, imageName: String, isAdded: Bool = false) {
+    init(name: String, imageData: Data, isAdded: Bool = false) {
         self.name = name
         self.isAdded = isAdded
-        self.image = UIImage(named: imageName)!
+        self.imageData = imageData
+    }
+    
+    func toggle(for shoppingItem: ShoppingItem, updateIsAddedTo isAdded: Bool) {
+        shoppingItem.isAdded = !shoppingItem.isAdded
     }
 }

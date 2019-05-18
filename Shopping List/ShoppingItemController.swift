@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class ShoppingItemController {
     
     init() {
-        loadImage()
+        loadImageData()
         reloadFromPersistentStore()
     }
     
@@ -19,13 +20,18 @@ class ShoppingItemController {
     
     let itemNames = ["Apple", "Grapes", "Milk", "Muffin", "Popcorn", "Soda", "Strawberries"]
     
-    func loadImage() {
+    private func loadImageData() {
         for item in itemNames {
-            let input = ShoppingItem.init(name: item, imageName: item)
+            let photoImage = UIImage(named: item)
+            guard let imageData = photoImage?.jpegData(compressionQuality: 1.0) else { return }
+            let input = ShoppingItem.init(name: item, imageData: imageData)
             shoppingItems.append(input)
         }
     }
-    
+    //update object Bool when cell is clicked so add savePersistentStore so when it reloads it will have same record
+    //saveToPersistentStore()
+
+
     //create a file
     private var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -66,5 +72,5 @@ class ShoppingItemController {
         let isAddedOnes = shoppingItems.filter{$0.isAdded == true}
         return isAddedOnes
     }
-    
+
 }

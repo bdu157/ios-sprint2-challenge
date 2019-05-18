@@ -27,9 +27,13 @@ class ShoppingListCollectionViewCell: UICollectionViewCell {
     
     func updateViews() {
         guard let input = shoppingItem else {return}
-            notLabel.text = "Not"
-            addedLabel.text = "Added"
-            shoppingItemImage.image = input.image
+            shoppingItemImage.image = UIImage(data: input.imageData)
             itemName.text = input.name
+            setIsAdded()
+    }
+    
+    // ture false from usredefults if true then show none if
+    func setIsAdded() {
+
     }
 }

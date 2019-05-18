@@ -38,7 +38,6 @@ class DetailShoppingListViewController: UIViewController {
     }
     
     
-    
     //UIAlert Action
     func presentAlert() {
         
