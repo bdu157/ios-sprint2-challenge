@@ -17,28 +17,32 @@ class DetailShoppingListViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         updateView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
     }
+
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
     @IBAction func sendOrderButtonTapped(_ sender: Any) {
     }
     
     
-    
-    
+    func updateView() {
+        if let input = shoppingItemController {
+            let arrayOfTures = input.isAddedTures
+            let numberOfTrues = arrayOfTures.count
+            listCountLabel.text = "You currently have \(numberOfTrues)(s) in your shopping list"
+    } else {
+            listCountLabel.text = "You currently have 0 in your shopping list"
+    }
+    }
 }

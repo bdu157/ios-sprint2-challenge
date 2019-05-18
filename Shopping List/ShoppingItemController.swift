@@ -26,5 +26,9 @@ class ShoppingItemController {
     }
     
 
+    var isAddedTures : [ShoppingItem] {
+        let isAddedOnes = shoppingItems.filter{$0.isAdded == false}
+        return isAddedOnes
+    }
     
 }
