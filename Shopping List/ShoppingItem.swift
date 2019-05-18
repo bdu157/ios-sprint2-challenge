@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
-struct ShoppingItem: Codable {
-    let name: String
-    let isAdded : Bool
+struct ShoppingItem {
+    var name: String
+    var image: UIImage
+    var isAdded : Bool
     
-    init(name: String, isAdded: Bool = false) {
+    init(name: String, imageName: String, isAdded: Bool = false) {
         self.name = name
         self.isAdded = isAdded
+        self.image = UIImage(named: imageName)!
     }
 }
