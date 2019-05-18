@@ -13,7 +13,8 @@ class DetailShoppingListViewController: UIViewController {
     var shoppingItemController : ShoppingItemController?
     
     
-    @IBOutlet weak var listCountLabel: UILabel!
+    @IBOutlet weak var listCountTextView: UITextView!
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
@@ -28,21 +29,39 @@ class DetailShoppingListViewController: UIViewController {
 
     }
 
-
+    
     
     
     
     @IBAction func sendOrderButtonTapped(_ sender: Any) {
+        presentAlert()
     }
     
     
+    
+    //UIAlert Action
+    func presentAlert() {
+        
+        guard let inputName = nameTextField.text,
+            let inputAddress = addressTextField.text else {return}
+        
+        let alert = UIAlertController(title: inputName, message: "\(inputName)'s order will be delivered in 15 minutes to your \(inputAddress)", preferredStyle: .actionSheet)
+        let message = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(message)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+
     func updateView() {
         if let input = shoppingItemController {
             let arrayOfTures = input.isAddedTures
             let numberOfTrues = arrayOfTures.count
-            listCountLabel.text = "You currently have \(numberOfTrues)(s) in your shopping list"
+            listCountTextView.text = "You currently have \(numberOfTrues)(s) in your shopping list"
     } else {
-            listCountLabel.text = "You currently have 0 in your shopping list"
+            listCountTextView.text = "You currently have 0 in your shopping list"
     }
     }
 }

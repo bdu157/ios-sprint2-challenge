@@ -124,13 +124,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEm-tu-8ZT">
-                                <rect key="frame" x="26" y="160" width="305" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rEs-KZ-DuM">
                                 <rect key="frame" x="26" y="304" width="305" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -146,6 +139,13 @@
                                     <action selector="sendOrderButtonTapped:" destination="Rt7-XC-lQj" eventType="touchUpInside" id="FM8-wC-uoV"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="owK-QT-dI7">
+                                <rect key="frame" x="26" y="140" width="305" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cFB-WG-fnR"/>
@@ -153,7 +153,7 @@
                     <navigationItem key="navigationItem" id="m52-gC-4Zv"/>
                     <connections>
                         <outlet property="addressTextField" destination="rEs-KZ-DuM" id="FHv-WO-FSv"/>
-                        <outlet property="listCountLabel" destination="lEm-tu-8ZT" id="hUm-Z7-vIJ"/>
+                        <outlet property="listCountTextView" destination="owK-QT-dI7" id="qDn-va-xNj"/>
                         <outlet property="nameTextField" destination="Y7e-2V-CdU" id="uRv-fB-R9v"/>
                     </connections>
                 </viewController>
