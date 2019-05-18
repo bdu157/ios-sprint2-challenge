@@ -85,8 +85,8 @@
 				0B438AC62290743D00467134 /* ShoppingItem.swift */,
 				0B438AC82290744E00467134 /* ShoppingItemController.swift */,
 				0B438ABE22906CD900467134 /* ShoppingListCollectionViewController.swift */,
-				0B438AC022906D5100467134 /* ShoppingListCollectionViewCell.swift */,
 				0B438AC2229070F900467134 /* DetailShoppingListViewController.swift */,
+				0B438AC022906D5100467134 /* ShoppingListCollectionViewCell.swift */,
 				0B438AC4229073DB00467134 /* Resources */,
 			);
 			path = "Shopping List";

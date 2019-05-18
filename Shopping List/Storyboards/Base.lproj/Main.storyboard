@@ -56,8 +56,14 @@
                                                             </subviews>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Qd-Rg-lV7">
-                                                            <rect key="frame" x="0.0" y="21.333333333333329" width="150" height="128.66666666666669"/>
+                                                            <rect key="frame" x="0.0" y="21.333333333333336" width="150" height="107.33333333333331"/>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54d-nm-vro">
+                                                            <rect key="frame" x="0.0" y="129.66666666666666" width="150" height="20.333333333333343"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -79,6 +85,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="addedLabel" destination="43D-xI-AGo" id="MB3-fF-iHE"/>
+                                    <outlet property="itemName" destination="54d-nm-vro" id="KEl-Sg-8T1"/>
                                     <outlet property="notLabel" destination="g6b-MK-oXl" id="PyJ-Wl-AHV"/>
                                     <outlet property="shoppingItemImage" destination="0Qd-Rg-lV7" id="Red-5B-Mtd"/>
                                 </connections>

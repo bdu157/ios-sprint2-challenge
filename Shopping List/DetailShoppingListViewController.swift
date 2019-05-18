@@ -10,11 +10,11 @@ import UIKit
 
 class DetailShoppingListViewController: UIViewController {
 
+    var shoppingItemController : ShoppingItemController?
+    
+    
     @IBOutlet weak var listCountLabel: UILabel!
-    
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var addressTextField: UITextField!
     
     
@@ -37,4 +37,8 @@ class DetailShoppingListViewController: UIViewController {
 
     @IBAction func sendOrderButtonTapped(_ sender: Any) {
     }
+    
+    
+    
+    
 }

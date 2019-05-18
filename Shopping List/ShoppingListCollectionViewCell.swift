@@ -10,10 +10,26 @@ import UIKit
 
 class ShoppingListCollectionViewCell: UICollectionViewCell {
     
+    var shoppingItem : ShoppingItem? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    
     @IBOutlet weak var notLabel: UILabel!
     @IBOutlet weak var addedLabel: UILabel!
     
     @IBOutlet weak var shoppingItemImage: UIImageView!
     
+    @IBOutlet weak var itemName: UILabel!
     
+    
+    func updateViews() {
+        guard let input = shoppingItem else {return}
+            notLabel.text = "Not"
+            addedLabel.text = "Added"
+            shoppingItemImage.image = input.image
+            itemName.text = input.name
+    }
 }

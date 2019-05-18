@@ -12,20 +12,16 @@ private let reuseIdentifier = "Cell"
 
 class ShoppingListCollectionViewController: UICollectionViewController {
 
+    var shoppingItemController = ShoppingItemController()
     
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+            collectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
     }
 
     // MARK: UICollectionViewDataSource
@@ -33,20 +29,22 @@ class ShoppingListCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return shoppingItemController.shoppingItems.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ShoppingListCollectionViewCell
+        let shoppingItem = self.shoppingItemController.shoppingItems[indexPath.row]
+        cell.shoppingItem = shoppingItem
         return cell
     }
     
 // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "ToDetailShoppingListVC" {
+            guard let destVC = segue.destination as? DetailShoppingListViewController else {return}
+                destVC.shoppingItemController = shoppingItemController
+        }
     }
     
  

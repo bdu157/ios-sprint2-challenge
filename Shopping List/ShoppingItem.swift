@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct ShoppingItem {
+struct ShoppingItem: Equatable {
     var name: String
     var image: UIImage
     var isAdded : Bool
