@@ -12,6 +12,7 @@ class ShoppingItemController {
     
     init() {
         loadImage()
+        reloadFromPersistentStore()
     }
     
     var shoppingItems : [ShoppingItem] = []
@@ -25,6 +26,41 @@ class ShoppingItemController {
         }
     }
     
+    //create a file
+    private var readingListURL: URL? {
+        let fileManager = FileManager.default
+        guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil}
+        return documentDirectory.appendingPathComponent("Itemlist.plist")
+    }
+    
+    //save it to location(file)
+    func saveToPersistentStore() {
+        guard let url = readingListURL else {return}
+        do {
+            let encoder = PropertyListEncoder()
+            let shoppingItemData = try encoder.encode(shoppingItems)
+            try shoppingItemData.write(to: url)
+        } catch {
+            NSLog("error saving books data: \(error)")
+        }
+    }
+    
+    
+    //reload it from location (file)
+    func reloadFromPersistentStore() {
+        let fileManager = FileManager.default
+        guard let url = readingListURL,
+            fileManager.fileExists(atPath: url.path) else {return}
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            let decodeShoppingItem = try decoder.decode([ShoppingItem].self, from: data)
+            self.shoppingItems = decodeShoppingItem
+        } catch {
+            NSLog("error loading books data:\(error)")
+        }
+    }
+
 
     var isAddedTures : [ShoppingItem] {
         let isAddedOnes = shoppingItems.filter{$0.isAdded == true}
