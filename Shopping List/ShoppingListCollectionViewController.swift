@@ -42,6 +42,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItem = shoppingItemController.shoppingItems[indexPath.item]
         shoppingItemController.toggle(for: selectedItem)
+        collectionView.reloadData()
     }
     
 // MARK: - Navigation
@@ -57,13 +58,13 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     @IBAction func nexButton(_ sender: Any) {
     }
     
-   
+/*
     private func setIsAdded(for bool: Bool) {
         
         let userDefaults = UserDefaults.standard
         userDefaults.set(bool, forKey: .isAddedKey)
     }
-    
+*/
 }
 
 extension String {

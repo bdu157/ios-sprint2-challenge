@@ -29,9 +29,18 @@ class ShoppingListCollectionViewCell: UICollectionViewCell {
             shoppingItemImage.image = UIImage(data: input.imageData)
             itemName.text = input.name
             addedLabel.text = "Not Added"
-            setStatusOfItem()
+            updateAdded()
     }
     
+    //true show added
+    func updateAdded() {
+        guard let input = shoppingItem else {return}
+        if input.isAdded {
+            addedLabel.text = "Added"
+        }
+    }
+    
+    /*
     // ture false from usredefults if true then show none if
     func setStatusOfItem() {
         let isAdded = UserDefaults.standard.bool(forKey: .isAddedKey)
@@ -39,4 +48,5 @@ class ShoppingListCollectionViewCell: UICollectionViewCell {
            addedLabel.text = "Added"
         }
     }
+    */
 }

@@ -48,6 +48,8 @@ class DetailShoppingListViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
+    
 
     func updateView() {
         if let input = shoppingItemController {
@@ -56,7 +58,7 @@ class DetailShoppingListViewController: UIViewController {
             listCountTextView.text = "You currently have \(numberOfTrues) items(s) in your shopping list"
     } else {
             listCountTextView.text = "You currently have 0 in your shopping list"
-    }
+        }
     }
     
 }

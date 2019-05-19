@@ -12,7 +12,6 @@ import UIKit
 class ShoppingItemController {
     
     init() {
-        loadImageData()
         reloadFromPersistentStore()
     }
     
@@ -26,6 +25,7 @@ class ShoppingItemController {
             guard let imageData = photoImage?.jpegData(compressionQuality: 1.0) else { return }
             let input = ShoppingItem.init(name: item, imageData: imageData)
             shoppingItems.append(input)
+            saveToPersistentStore()
         }
     }
     func toggle(for shoppingItem: ShoppingItem) {
