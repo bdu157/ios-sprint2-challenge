@@ -25,8 +25,6 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDataSource
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return shoppingItemController.shoppingItems.count
@@ -53,20 +51,8 @@ class ShoppingListCollectionViewController: UICollectionViewController {
         }
     }
     
- 
-    
     @IBAction func nexButton(_ sender: Any) {
     }
     
-/*
-    private func setIsAdded(for bool: Bool) {
-        
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(bool, forKey: .isAddedKey)
-    }
-*/
 }
 
-extension String {
-    static var isAddedKey = "isAddedKey"
-}

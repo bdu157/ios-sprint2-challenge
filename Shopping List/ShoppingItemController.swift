@@ -11,8 +11,14 @@ import UIKit
 
 class ShoppingItemController {
     
+    //Use a Bool and the UserDefaults to make sure that new shopping items are initialized only once
     init() {
+        
+        if initialSetValue != true {
+            loadImageData()
+        } else {
         reloadFromPersistentStore()
+        }
     }
     
     var shoppingItems : [ShoppingItem] = []
@@ -25,15 +31,16 @@ class ShoppingItemController {
             guard let imageData = photoImage?.jpegData(compressionQuality: 1.0) else { return }
             let input = ShoppingItem.init(name: item, imageData: imageData)
             shoppingItems.append(input)
-            saveToPersistentStore()
         }
-    }
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(true, forKey: .setValueKey)
+        saveToPersistentStore()
+}
+
     func toggle(for shoppingItem: ShoppingItem) {
         shoppingItem.isAdded = !shoppingItem.isAdded
         saveToPersistentStore()
     }
-    
-
 
     //create a file
     private var readingListURL: URL? {
@@ -71,10 +78,20 @@ class ShoppingItemController {
         }
     }
 
-
     var isAddedTrues : [ShoppingItem] {
         let isAddedOnes = shoppingItems.filter{$0.isAdded == true}
         return isAddedOnes
     }
-
+    
+    //computed property for return Bool value for key
+    
+    var initialSetValue : Bool {
+        let userDefaults = UserDefaults.standard
+        return userDefaults.bool(forKey: .setValueKey)
+    }
+    
 }
+extension String {
+    static var setValueKey = "setValueKey"
+}
+

@@ -28,25 +28,11 @@ class ShoppingListCollectionViewCell: UICollectionViewCell {
         guard let input = shoppingItem else {return}
             shoppingItemImage.image = UIImage(data: input.imageData)
             itemName.text = input.name
-            addedLabel.text = "Not Added"
-            updateAdded()
-    }
-    
-    //true show added
-    func updateAdded() {
-        guard let input = shoppingItem else {return}
         if input.isAdded {
             addedLabel.text = "Added"
+        } else {
+            addedLabel.text = "Not Added"
         }
     }
-    
-    /*
-    // ture false from usredefults if true then show none if
-    func setStatusOfItem() {
-        let isAdded = UserDefaults.standard.bool(forKey: .isAddedKey)
-        if isAdded {
-           addedLabel.text = "Added"
-        }
-    }
-    */
+
 }

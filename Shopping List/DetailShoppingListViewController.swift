@@ -47,9 +47,6 @@ class DetailShoppingListViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    
 
     func updateView() {
         if let input = shoppingItemController {
