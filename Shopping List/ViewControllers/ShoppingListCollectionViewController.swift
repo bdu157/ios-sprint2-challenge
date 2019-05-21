@@ -44,6 +44,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     }
     
 // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToDetailShoppingListVC" {
             guard let destVC = segue.destination as? DetailShoppingListViewController else {return}

@@ -32,6 +32,7 @@ class ShoppingItemController {
             let input = ShoppingItem.init(name: item, imageData: imageData)
             shoppingItems.append(input)
         }
+        
         let userDefaults = UserDefaults.standard
         userDefaults.set(true, forKey: .setValueKey)
         saveToPersistentStore()

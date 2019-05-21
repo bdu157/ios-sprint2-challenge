@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ShoppingItem: Codable {
+class ShoppingItem: Codable {   //Equatable
     var name: String
     var imageData: Data
     var isAdded : Bool
